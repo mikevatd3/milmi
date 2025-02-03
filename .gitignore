@@ -1,0 +1,18 @@
+# Don't commit the python refuse
+env
+__pycache__
+
+# Don't commit the config
+config.toml
+
+# Don't include log files
+*.log
+
+# Avoid including any intermediate data downloads 
+*.json
+*.csv
+*.parquet
+*.parquet.gzip
+
+# The logging config is okay
+!logging_config.json

@@ -1,0 +1,109 @@
+# Topic is the highest level of organization. It serves as a container
+# for datasets that should live together in their own schema.
+name = "milmi"
+description = "Cleans, standardizes and loads the MILMI dataset we receive from the state (or painstakingly download)."
+schema = "milmi"
+
+
+[tables.codes] # The 'codes' table
+# If you don't want to provide any particular field, you can just comment 
+# it out and the DB will handle the nulls.
+name="codes"
+description = "The table that holds all NAICS codes and parent categories"
+unit_of_analysis = "Industry categories (+ parents & children)"
+universe = "Industry categories agreed on between Mexico, US, and Canada"
+owner = "Office of Management and budget (OMB)"
+collector = "Office of Management and budget (OMB)"
+# collection_method = "Leave commented if not using"
+collection_reason = """To allow for a high level of comparability in
+business statistics among the North American countries."""
+source_url = "https://www.census.gov/naics/?99967"
+# notes = "Leave commented if not using"
+# use_conditions = "Leave commented if not using"
+# cadence = "Leave commented if not using"
+
+# Variables are placed in their own sub-list with the table hierarchy
+[[tables.codes.variables]]
+# This var shows all the fields, but it's not necessary to include all in
+# every one. The DB app will figure it out.
+name = "code"
+description = "The code or parent code for each NAICS industry"
+parent_variable = "code"
+# suppression_threshold = "Leave commented if not using."
+standard = "NAICS"
+
+[[tables.codes.variables]]
+name = "title"
+description = "The name of the industry associated with the code"
+
+[[tables.codes.variables]]
+name = "description"
+description = "The code or parent code for each NAICS industry"
+
+# Editions tracks when items were uploaded.
+[tables.codes.editions.2024-10-01]
+# This is the key that identifies the edition in the system -- it should
+# be the month beginning, year beginning, or q beginning for this dataset.
+edition_date = "2024-10-01"
+
+# Any notes that go with the edition specifically.
+notes = "First upload of this dataset"
+
+ # Path to the raw file REQUIRED
+raw_path = "/home/michael/projects/new/system/data/naics/raw/naics_descriptions_2022.csv"
+# 'start' & 'end' are special fields -- if they are defined, they will be 
+# appended to every row of the data table.
+
+
+# Think of 'start' & 'end' as though you were to query using a timestamp with 
+# BETWEEN and get a valid result. One of the checks will be that these
+# don't overlap between editions.
+
+# To really get into it, check out 'Allen's interval algebra.'
+start = "2024-01-01" 
+end = "9999-12-31" # This is the 'forever' standard. This should be 
+                   # applied to rows that are 'current.'
+
+# If you leave them undefined, it's best practice to have some kind of
+# date information in the variables.
+
+# These are for citations and only appear on the editions table.
+published = "2025-01-01"
+acquired = "2025-01-01" 
+
+
+[tables.industry_detail]
+name="industry_detail"
+description = "All detail codes for NAICS (no tree)"
+unit_of_analysis = "Industry categories (+ parents & children)"
+universe = "Industry categories agreed on between Mexico, US, and Canada"
+owner = "Office of Management and budget (OMB)"
+collector = "Office of Management and budget (OMB)"
+collection_reason = """To allow for a high level of comparability in
+business statistics among the North American countries."""
+source_url = "https://www.census.gov/naics/?99967"
+notes = """The code on this table can reference several industry descriptions."""
+
+[[tables.industry_detail.variables]]
+name = "id"
+description = "An surrogate ID number for each description."
+
+[[tables.industry_detail.variables]]
+name = "code"
+description = "The code that best aligns with the industry described"
+standard = "NAICS"
+
+[[tables.industry_detail.variables]]
+name = "industry_description"
+description = "The detailed description of an industry associtaed with the naics code."
+
+[tables.industry_detail.editions.2025-01-01]
+edition_date = "2025-01-01"
+notes = "First upload of this dataset"
+raw_path = "/home/michael/projects/new/system/data/naics/raw/naics_index_file_2022.csv"
+start = "2024-01-01" 
+end = "9999-12-31"
+published = "2025-01-01"
+acquired = "2025-01-01" 
+
+
