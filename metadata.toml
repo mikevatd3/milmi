@@ -20,98 +20,65 @@ source_url = ""
 
 [[tables.milmi_employers.variables]]
 name = "id"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
+description = "The D3-generated id for the business"
 
 [[tables.milmi_employers.variables]]
 name = "name"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
+description = "The business name"
 
 [[tables.milmi_employers.variables]]
 name = "address"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
+description = "The business address"
 
 [[tables.milmi_employers.variables]]
-name = "phone"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
+name = "city"
+description = "The business address"
 
 [[tables.milmi_employers.variables]]
-name = "website"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
+name = "state"
+description = "The business address state"
+
+[[tables.milmi_employers.variables]]
+name = "zip_code"
+description = "The business address zip code"
+
+[[tables.milmi_employers.variables]]
+name = "zip_code_2"
+description = "The business address zip code extension"
 
 [[tables.milmi_employers.variables]]
 name = "business_description"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
+description = "The description of the business"
 
 [[tables.milmi_employers.variables]]
-name = "num_employees"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
+name = "naics"
+description = "The NAICS code representing the business's industry category"
+standard = "NAICS"
 
 [[tables.milmi_employers.variables]]
-name = "lat"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
+name = "employment_size"
+description = "The size of the business coded with letters A - K"
 
 [[tables.milmi_employers.variables]]
-name = "lon"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
+name = "employment_size_range"
+description = "The range represented by the letter in the business_size field"
 
 [[tables.milmi_employers.variables]]
-name = "geometry"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
+name = "employment_size_value"
+description = "The exact (?) number of employees of the business (or maybe an estimate, unsure -- MV)"
 
 [[tables.milmi_employers.variables]]
 name = "county"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
+description = "The county of the business"
 
 [[tables.milmi_employers.variables]]
-name = "start"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
+name = "year"
+description = "The year of the dataset"
 
-[[tables.milmi_employers.variables]]
-name = "end"
-description = ""
-parent_variable = ""
-# suppression_threshold = "Leave commented if not using."
-# standard = "Leave commented if not using."
 
 [tables.milmi_employers.editions.2025-01-01]
 edition_date = "2025-01-01"
-notes = "2025 upload of the milmi dataset -- available for counties Wayne, Oakland, Macomb, St Clair, Monroe, Calhoun, Washtenaw"
+notes = "2025 upload of the milmi dataset -- available for counties Wayne, Oakland, Macomb, St Clair, Monroe, Calhoun, Washtenaw, Livingston"
 raw_path = "/home/michael/projects/new/system/data/milmi/EMPDB_request.xlsx"
 start = "2024-01-01" 
 end = "9999-12-31" # Forever
