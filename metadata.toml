@@ -77,7 +77,7 @@ description = "The year of the dataset"
 
 
 [tables.milmi_employers.editions.2025-01-01]
-# edition_date = "2025-01-01"
+edition_date = "2025-01-01"
 notes = "2025 upload of the milmi dataset -- available for counties Wayne, Oakland, Macomb, St Clair, Monroe, Calhoun, Washtenaw, Livingston"
 raw_path = "/home/michael/projects/new/system/data/milmi/EMPDB_request.xlsx"
 start = "2024-01-01" 
