@@ -147,7 +147,7 @@ def main(edition_date, metadata_only):
     # Validate
     try:
         validated = MILMIEmployers.validate(result)
-        validated = validated[MILMIEmployers.to_schema().columns.keys()] #PLEG
+        validated = validated[list(MILMIEmployers.to_schema().columns.keys())] #PLEGH
         logger.info(
             f"Validating {table_name} was successful. Recording metadata."
         )
