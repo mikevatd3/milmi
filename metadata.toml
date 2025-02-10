@@ -4,7 +4,7 @@ name = "milmi"
 description = "Cleans, standardizes and loads the MILMI dataset we receive from the state (or painstakingly download)."
 schema = "milmi"
 
-[tables.milmi_employers]
+[tables.employers]
 name="employers"
 description = "The list of Michigan Employers (not all counties) gathered by Data Axel."
 unit_of_analysis = "Businesses with at least one employee"
@@ -17,65 +17,65 @@ notes = "We get this by emailing someone from the state -- we can't request the 
 # use_conditions = "Leave commented if not using"
 cadence = "Yearly-ish"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "id"
 description = "The D3-generated id for the business"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "name"
 description = "The business name"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "address"
 description = "The business address"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "city"
 description = "The business address"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "state"
 description = "The business address state"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "zip_code"
 description = "The business address zip code"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "zip_code_2"
 description = "The business address zip code extension"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "business_description"
 description = "The description of the business"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "naics"
 description = "The NAICS code representing the business's industry category"
 standard = "NAICS"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "employment_size"
 description = "The size of the business coded with letters A - K"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "employment_size_range"
 description = "The range represented by the letter in the business_size field"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "employment_size_value"
 description = "The exact (?) number of employees of the business (or maybe an estimate, unsure -- MV)"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "county"
 description = "The county of the business"
 
-[[tables.milmi_employers.variables]]
+[[tables.employers.variables]]
 name = "year"
 description = "The year of the dataset"
 
 
-[tables.milmi_employers.editions.2025-01-01]
+[tables.employers.editions.2025-01-01]
 edition_date = "2025-01-01"
 notes = "2025 upload of the milmi dataset -- available for counties Wayne, Oakland, Macomb, St Clair, Monroe, Calhoun, Washtenaw, Livingston"
 raw_path = "V:\\DATA\\Business and employment\\MILMI\\Data\\2025\\Raw\\EMPDB_request.xlsx"
