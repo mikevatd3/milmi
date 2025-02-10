@@ -22,7 +22,7 @@ class MILMIEmployers(pa.DataFrameModel):
     """
     The employer data from the Michigan Labor Market Information Page 
     """
-    id: int = pa.Field()
+    id: int = pa.Field(unique=True)
     name: str = pa.Field()
     address: str = pa.Field()
     city: str = pa.Field()
@@ -133,21 +133,22 @@ def main(edition_date, metadata_only):
                 ], 
                 axis=1
             )
-            .reset_index()
-            .rename(columns={"index": "id"})
         )
 
         county_dfs.append(county_df)
     
-    result = pd.concat(county_dfs)
-
-    logger.info(result["employment_size"].value_counts())
+    result = (
+        pd.concat(county_dfs)
+        .reset_index()
+        .rename(columns={"index": "id"})
+    )
 
     logger.info(f"Cleaning {table_name} was successful validating schema.")
 
     # Validate
     try:
         validated = MILMIEmployers.validate(result)
+        validated = validated[MILMIEmployers.to_schema().columns.keys()] #PLEG
         logger.info(
             f"Validating {table_name} was successful. Recording metadata."
         )
@@ -177,7 +178,7 @@ def main(edition_date, metadata_only):
             logger.info("Metadata recorded, pushing data to db.")
 
             validated.to_sql(  # type: ignore
-                table_name, db, index=False, schema=metadata["schema"], if_exists="append"
+                table_name, db, index=False, schema=metadata["schema"], if_exists="replace"
             )
     else:
         logger.info("Metadata only specified, so process complete.")

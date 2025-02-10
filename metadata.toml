@@ -5,7 +5,7 @@ description = "Cleans, standardizes and loads the MILMI dataset we receive from 
 schema = "milmi"
 
 [tables.milmi_employers]
-name="milmi_employers"
+name="employers"
 description = "The list of Michigan Employers (not all counties) gathered by Data Axel."
 unit_of_analysis = "Businesses with at least one employee"
 universe = "Employers in counties: Wayne, Oakland, Macomb, Livingston, Monroe, Washtenaw, Calhoun"
