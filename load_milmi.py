@@ -140,14 +140,30 @@ def main(edition_date, metadata_only):
     result = (
         pd.concat(county_dfs)
         .assign(id=lambda df: range(len(df)))
-    )
+    )[[
+        "id",
+        "name",
+        "address",
+        "city",
+        "county",
+        "state",
+        "zip_code",
+        "zip_code_2",
+        "business_description",
+        "employment_size_range",
+        "employment_size_value",
+        "employment_size",
+        "year_established",
+        "releaseno",
+        "naics",
+        "year ",
+    ]]
 
     logger.info(f"Cleaning {table_name} was successful validating schema.")
 
     # Validate
     try:
         validated = MILMIEmployers.validate(result)
-        validated = validated[list(MILMIEmployers.to_schema().columns.keys())] #PLEGH
         logger.info(
             f"Validating {table_name} was successful. Recording metadata."
         )
