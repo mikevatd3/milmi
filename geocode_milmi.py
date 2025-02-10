@@ -43,7 +43,7 @@ class EmployerGeo(pa.DataFrameModel):
 
 logger = setup_logging()
 
-table_name = "employers_geo"
+table_name = "employer_geo"
 
 with open("metadata.toml", "rb") as md:
     metadata = tomli.load(md)
