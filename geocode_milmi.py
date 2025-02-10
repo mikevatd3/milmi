@@ -112,14 +112,14 @@ def main(edition_date, metadata_only):
 
     for i, r in enumerate(request_dfs):
         logger.info(f"Completing request {i + 1}/{calls}")
-        response = cg.addressbatch(r.drop("date", axis=1).to_dict(orient="records"))
+        response = cg.addressbatch(r.drop("year", axis=1).to_dict(orient="records"))
 
         resp = pd.DataFrame(response)
 
         responses.append(
             resp
             .merge(
-                r[["id", "date"]], 
+                r[["id", "year"]], 
                 on="id"
             )
         )
@@ -161,10 +161,10 @@ def main(edition_date, metadata_only):
         )
     )[[
         "id",
-        "date",
         "match_type",
         "block_geoid",
         "geom",
+        "year",
     ]]
 
     gdf = gpd.GeoDataFrame(result, geometry="geom", crs="EPSG:4326")
