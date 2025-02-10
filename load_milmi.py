@@ -156,7 +156,7 @@ def main(edition_date, metadata_only):
         "year_established",
         "releaseno",
         "naics",
-        "year ",
+        "year",
     ]]
 
     logger.info(f"Cleaning {table_name} was successful validating schema.")
