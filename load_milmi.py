@@ -164,7 +164,7 @@ def main(edition_date, metadata_only):
             table_name,
             metadata,
             edition_date,
-            result,
+            validated,
             sessionmaker(bind=db)(),
             logger,
         )
