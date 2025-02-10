@@ -12,7 +12,7 @@ from sqlalchemy.orm import sessionmaker
 
 logger = setup_logging()
 
-table_name = "milmi_employers"
+table_name = "employers"
 
 with open("metadata.toml", "rb") as md:
     metadata = tomli.load(md)
