@@ -83,3 +83,42 @@ start = "2024-01-01"
 end = "9999-12-31" # Forever
 published = "2024-01-01"
 acquired = "2025-01-29" 
+
+[tables.employer_geo]
+name="employer_geo"
+description = "The geocode results from the MILMI dataset."
+unit_of_analysis = "Employer"
+universe = "Employers in Wayne, Oakland, Macomb, Livingston, Washtenaw, Calhoun"
+owner = "Michigan Labor Market Information; United States Census Bureau (Geocoder)"
+collector = "Michigan Labor Market Information; United States Census Bureau (Geocoder)"
+collection_reason = "To associate geographic points with the MILMI dataset."
+source_url = ""
+
+[[tables.employer_geo.variables]]
+name = "id"
+description = "The id connecting the geocoder row to the row from the MILMI main employers table."
+
+[[tables.employer_geo.variables]]
+name = "date"
+description = "The date of the geocode."
+
+[[tables.employer_geo.variables]]
+name = "match_type"
+description = "The match type from the geocoder (Exact or Non_Exact)"
+
+[[tables.employer_geo.variables]]
+name = "block_geoid"
+description = "The geoid for the block group of the address assigned by the geocoder"
+
+[[tables.employer_geo.variables]]
+name = "geom"
+description = "The Centroid for the business."
+
+[tables.employer_geo.editions.2025-01-01]
+edition_date = "2025-01-01]"
+notes = "First upload of this dataset"
+raw_path = ""
+start = "2025-01-01"
+end = "9999-12-31" # Forever
+published = "2024-01-01"
+acquired = "2025-02-10" # Geocode date
