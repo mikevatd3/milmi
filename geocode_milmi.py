@@ -99,7 +99,7 @@ def main(edition_date, metadata_only):
         # geocode everything.
 
         with db_engine.connect() as db:
-            new_providers = pd.read_sql(all_employers_q, db)
+            new_providers = pd.read_sql(all_employers_q, db, dtype={"id": "str"})
     
 
     new_providers = new_providers.rename(columns={"license_number": "id", "address": "street", "zip_code": "zip"})
