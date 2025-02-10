@@ -139,8 +139,7 @@ def main(edition_date, metadata_only):
     
     result = (
         pd.concat(county_dfs)
-        .reset_index()
-        .rename(columns={"index": "id"})
+        .assign(id=lambda df: range(len(df)))
     )
 
     logger.info(f"Cleaning {table_name} was successful validating schema.")
